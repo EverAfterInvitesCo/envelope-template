@@ -1,0 +1,6 @@
+{
+  "name": "Pearl Ivory Save the Date",
+  "description": "An elegant interactive digital save the date invitation featuring a luxury pearl ivory lace envelope, wax seal, dynamic countdown timer, event details, and address collection.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

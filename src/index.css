@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-calligraphy: 'Pinyon Script', cursive;
+  --font-sans: 'Montserrat', sans-serif;
+}
+
+@layer utilities {
+  .font-script {
+    font-family: 'Great Vibes', cursive;
+  }
+  .font-pinyon {
+    font-family: 'Pinyon Script', cursive;
+  }
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+  .font-playfair {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  /* Pearl & Ivory Theme Gradient & Shadow Accents */
+  .wax-seal-shadow {
+    box-shadow: 0 10px 25px -5px rgba(184, 153, 114, 0.4), 0 4px 10px -2px rgba(140, 100, 60, 0.25), inset 0 2px 4px rgba(255, 255, 255, 0.8), inset 0 -3px 6px rgba(120, 80, 40, 0.3);
+  }
+
+  .pearl-glow {
+    box-shadow: inset -2px -2px 6px rgba(210, 190, 170, 0.4), inset 3px 3px 6px rgba(255, 255, 255, 0.9), 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .envelope-shadow {
+    box-shadow: 0 20px 40px -15px rgba(60, 50, 40, 0.15), 0 0 15px rgba(0, 0, 0, 0.03);
+  }
+
+  .card-lace-shadow {
+    box-shadow: 0 12px 30px -8px rgba(90, 80, 70, 0.12), 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+}
+
+/* Custom delicate scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FDFBF7;
+}
+::-webkit-scrollbar-thumb {
+  background: #E5DDD0;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #CFC2B0;
+}
+
