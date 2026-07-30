@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Volume2, VolumeX, Settings, Sparkles, Heart } from 'lucide-react';
+import { Volume2, VolumeX, Sparkles } from 'lucide-react';
 
 interface HeaderBarProps {
-  onOpenPersonalize: () => void;
   musicEnabled: boolean;
   onToggleMusic: () => void;
   onReplayVideo?: () => void;
 }
 
 export const HeaderBar: React.FC<HeaderBarProps> = ({
-  onOpenPersonalize,
   musicEnabled,
   onToggleMusic,
   onReplayVideo,
@@ -138,16 +136,6 @@ export const HeaderBar: React.FC<HeaderBarProps> = ({
               <span className="hidden sm:inline text-[10px] font-semibold">Watch Intro</span>
             </button>
           )}
-
-          {/* Personalize Button */}
-          <button
-            onClick={onOpenPersonalize}
-            className="flex items-center space-x-1.5 bg-[#F2EADB] hover:bg-[#E8DDD0] text-[#4A3E33] px-3 py-1.5 rounded-full text-xs font-cormorant tracking-wider uppercase transition-colors border border-[#DFD3BF] cursor-pointer"
-            title="Personalize details"
-          >
-            <Settings className="w-3.5 h-3.5 text-[#8C7A68]" />
-            <span className="hidden sm:inline text-[10px] font-semibold">Personalize</span>
-          </button>
         </div>
       </div>
     </header>
