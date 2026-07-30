@@ -98,145 +98,147 @@ END:VCALENDAR`;
   };
 
   return (
-    <section className="relative w-full max-w-4xl mx-auto px-4 py-12 flex flex-col items-center space-y-16 text-center select-none">
-      {/* Decorative Top Divider */}
-      <div className="flex items-center justify-center space-x-4 opacity-60">
-        <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-[#C4B5A5] to-transparent" />
-        <span className="text-[#8C7A68] text-sm">✦</span>
-        <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-[#C4B5A5] to-transparent" />
-      </div>
-
-      {/* MEET US IN Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="space-y-4 max-w-2xl"
-      >
-        <p className="font-cormorant text-xs sm:text-sm tracking-[0.3em] uppercase text-[#7A6C5D] font-semibold">
-          MEET US IN
-        </p>
-
-        <h2 className="font-script text-5xl sm:text-7xl md:text-8xl text-[#332A24] font-normal leading-tight">
-          {data.locationName}
-        </h2>
-
-        {/* Date & Time details formatted in uppercase serif */}
-        <div className="space-y-2 pt-4">
-          <p className="font-cormorant text-sm sm:text-lg tracking-[0.25em] uppercase text-[#4A3E33] font-medium">
-            {data.dateFormatted}
-          </p>
-          <p className="font-cormorant text-xs sm:text-base tracking-[0.2em] uppercase text-[#7A6C5D]">
-            {data.timeFormatted}
-          </p>
-          <p className="font-cormorant text-xs sm:text-sm tracking-[0.18em] uppercase text-[#8C7B6B] italic pt-2">
-            {data.messageText}
-          </p>
+    <div className="w-full flex flex-col items-center">
+      <section className="relative w-full max-w-4xl mx-auto px-4 py-12 flex flex-col items-center space-y-16 text-center select-none">
+        {/* Decorative Top Divider */}
+        <div className="flex items-center justify-center space-x-4 opacity-60">
+          <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-[#C4B5A5] to-transparent" />
+          <span className="text-[#8C7A68] text-sm">✦</span>
+          <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-[#C4B5A5] to-transparent" />
         </div>
 
-        {/* Venue Location Sub-text & Maps button */}
-        <div className="pt-2 flex justify-center items-center space-x-2 text-[#7A6C5D] text-xs font-cormorant">
-          <MapPin className="w-3.5 h-3.5 text-[#B89D82]" />
-          <span>{data.venueDetails}</span>
-        </div>
-      </motion.div>
-
-      {/* COUNTDOWN TIMER */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="w-full max-w-xl bg-[#FAF6EE]/80 border border-[#EBE2D3] rounded-2xl p-6 sm:p-8 card-lace-shadow backdrop-blur-xs space-y-4"
-      >
-        <p className="font-cormorant text-xs tracking-[0.25em] uppercase text-[#8C7B6B] font-semibold">
-          COUNTING DOWN TO OUR BIG DAY
-        </p>
-
-        <div className="grid grid-cols-4 gap-2 sm:gap-4 items-center">
-          {[
-            { label: 'DAYS', value: timeLeft.days },
-            { label: 'HOURS', value: timeLeft.hours },
-            { label: 'MINUTES', value: timeLeft.minutes },
-            { label: 'SECONDS', value: timeLeft.seconds },
-          ].map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center bg-[#F4ECDF] py-3 sm:py-4 px-2 rounded-xl border border-[#E2D6C4]/60"
-            >
-              <span className="font-cormorant text-2xl sm:text-4xl md:text-5xl font-bold text-[#3D352E] tracking-tight">
-                {String(item.value).padStart(2, '0')}
-              </span>
-              <span className="font-cormorant text-[9px] sm:text-xs tracking-[0.2em] text-[#7A6C5D] uppercase mt-1">
-                {item.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* ACTION BUTTONS: "KINDLY SHARE YOUR ADDRESS HERE" & CALENDAR */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="flex flex-col items-center space-y-6 w-full max-w-md"
-      >
-        {/* Main Pill Button */}
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
-          onClick={onOpenAddressModal}
-          className="w-full bg-[#B39B7C] hover:bg-[#A38B6C] text-[#FAF6EE] py-4 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 font-cormorant text-sm sm:text-base font-semibold tracking-[0.25em] uppercase border border-[#CBB394] cursor-pointer"
+        {/* MEET US IN Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="space-y-4 max-w-2xl"
         >
-          RSVP PLEASE
-        </motion.button>
+          <p className="font-cormorant text-xs sm:text-sm tracking-[0.3em] uppercase text-[#7A6C5D] font-semibold">
+            MEET US IN
+          </p>
 
-        {/* Secondary Utility Actions (Add to Calendar & Share) */}
-        <div className="flex items-center justify-center space-x-4 pt-1">
-          <button
-            onClick={handleAddToCalendar}
-            className="flex items-center space-x-2 bg-[#F2EADB] hover:bg-[#E8DDD0] text-[#4A3E33] px-4 py-2 rounded-full border border-[#DFD3BF] text-xs font-cormorant font-medium tracking-wider uppercase transition-colors cursor-pointer"
+          <h2 className="font-script text-5xl sm:text-7xl md:text-8xl text-[#332A24] font-normal leading-tight">
+            {data.locationName}
+          </h2>
+
+          {/* Date & Time details formatted in uppercase serif */}
+          <div className="space-y-2 pt-4">
+            <p className="font-cormorant text-sm sm:text-lg tracking-[0.25em] uppercase text-[#4A3E33] font-medium">
+              {data.dateFormatted}
+            </p>
+            <p className="font-cormorant text-xs sm:text-base tracking-[0.2em] uppercase text-[#7A6C5D]">
+              {data.timeFormatted}
+            </p>
+            <p className="font-cormorant text-xs sm:text-sm tracking-[0.18em] uppercase text-[#8C7B6B] italic pt-2">
+              {data.messageText}
+            </p>
+          </div>
+
+          {/* Venue Location Sub-text & Maps button */}
+          <div className="pt-2 flex justify-center items-center space-x-2 text-[#7A6C5D] text-xs font-cormorant">
+            <MapPin className="w-3.5 h-3.5 text-[#B89D82]" />
+            <span>{data.venueDetails}</span>
+          </div>
+        </motion.div>
+
+        {/* COUNTDOWN TIMER */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="w-full max-w-xl bg-[#FAF6EE]/80 border border-[#EBE2D3] rounded-2xl p-6 sm:p-8 card-lace-shadow backdrop-blur-xs space-y-4"
+        >
+          <p className="font-cormorant text-xs tracking-[0.25em] uppercase text-[#8C7B6B] font-semibold">
+            COUNTING DOWN TO OUR BIG DAY
+          </p>
+
+          <div className="grid grid-cols-4 gap-2 sm:gap-4 items-center">
+            {[
+              { label: 'DAYS', value: timeLeft.days },
+              { label: 'HOURS', value: timeLeft.hours },
+              { label: 'MINUTES', value: timeLeft.minutes },
+              { label: 'SECONDS', value: timeLeft.seconds },
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center bg-[#F4ECDF] py-3 sm:py-4 px-2 rounded-xl border border-[#E2D6C4]/60"
+              >
+                <span className="font-cormorant text-2xl sm:text-4xl md:text-5xl font-bold text-[#3D352E] tracking-tight">
+                  {String(item.value).padStart(2, '0')}
+                </span>
+                <span className="font-cormorant text-[9px] sm:text-xs tracking-[0.2em] text-[#7A6C5D] uppercase mt-1">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* ACTION BUTTONS: "KINDLY SHARE YOUR ADDRESS HERE" & CALENDAR */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center space-y-6 w-full max-w-md"
+        >
+          {/* Main Pill Button */}
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            onClick={onOpenAddressModal}
+            className="w-full bg-[#B39B7C] hover:bg-[#A38B6C] text-[#FAF6EE] py-4 px-8 rounded-full shadow-md hover:shadow-lg transition-all duration-300 font-cormorant text-sm sm:text-base font-semibold tracking-[0.25em] uppercase border border-[#CBB394] cursor-pointer"
           >
-            <Calendar className="w-3.5 h-3.5 text-[#8C7A68]" />
-            <span>Add to Calendar</span>
-          </button>
+            RSVP PLEASE
+          </motion.button>
 
-          <button
-            onClick={handleShare}
-            className="flex items-center space-x-2 bg-[#F2EADB] hover:bg-[#E8DDD0] text-[#4A3E33] px-4 py-2 rounded-full border border-[#DFD3BF] text-xs font-cormorant font-medium tracking-wider uppercase transition-colors cursor-pointer"
-          >
-            {copied ? (
-              <>
-                <Check className="w-3.5 h-3.5 text-emerald-600" />
-                <span className="text-emerald-700">Link Copied!</span>
-              </>
-            ) : (
-              <>
-                <Share2 className="w-3.5 h-3.5 text-[#8C7A68]" />
-                <span>Share Link</span>
-              </>
-            )}
-          </button>
-        </div>
+          {/* Secondary Utility Actions (Add to Calendar & Share) */}
+          <div className="flex items-center justify-center space-x-4 pt-1">
+            <button
+              onClick={handleAddToCalendar}
+              className="flex items-center space-x-2 bg-[#F2EADB] hover:bg-[#E8DDD0] text-[#4A3E33] px-4 py-2 rounded-full border border-[#DFD3BF] text-xs font-cormorant font-medium tracking-wider uppercase transition-colors cursor-pointer"
+            >
+              <Calendar className="w-3.5 h-3.5 text-[#8C7A68]" />
+              <span>Add to Calendar</span>
+            </button>
 
-        {/* "WE LOOK FORWARD TO CELEBRATING TOGETHER" */}
-        <p className="font-cormorant text-xs sm:text-sm tracking-[0.22em] uppercase text-[#6B5E52] pt-4 font-medium">
-          WE LOOK FORWARD TO CELEBRATING TOGETHER
-        </p>
-      </motion.div>
+            <button
+              onClick={handleShare}
+              className="flex items-center space-x-2 bg-[#F2EADB] hover:bg-[#E8DDD0] text-[#4A3E33] px-4 py-2 rounded-full border border-[#DFD3BF] text-xs font-cormorant font-medium tracking-wider uppercase transition-colors cursor-pointer"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 text-emerald-600" />
+                  <span className="text-emerald-700">Link Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 className="w-3.5 h-3.5 text-[#8C7A68]" />
+                  <span>Share Link</span>
+                </>
+              )}
+            </button>
+          </div>
 
-      {/* FOOTER & CREST MONOGRAM WITH SILK BACKGROUND */}
+          {/* "WE LOOK FORWARD TO CELEBRATING TOGETHER" */}
+          <p className="font-cormorant text-xs sm:text-sm tracking-[0.22em] uppercase text-[#6B5E52] pt-4 font-medium">
+            WE LOOK FORWARD TO CELEBRATING TOGETHER
+          </p>
+        </motion.div>
+      </section>
+
+      {/* FULL-WIDTH FOOTER & CREST MONOGRAM WITH SILK BACKGROUND */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="relative w-full rounded-3xl overflow-hidden mt-12 py-16 px-6 border border-[#EAE2D2] shadow-md flex flex-col items-center justify-center space-y-4 text-center bg-[#FAF6EE]"
+        className="relative w-full overflow-hidden mt-12 py-20 px-6 border-t border-[#EAE2D2] flex flex-col items-center justify-center space-y-4 text-center bg-[#FAF6EE]"
       >
-        {/* Silk Background Image filling the entire footer */}
+        {/* Silk Background Image filling the entire footer width */}
         <img
           src={data.silkBgPhoto}
           alt="Silk Background"
@@ -267,6 +269,6 @@ END:VCALENDAR`;
           </p>
         </div>
       </motion.div>
-    </section>
+    </div>
   );
 };
