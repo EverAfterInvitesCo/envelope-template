@@ -37,7 +37,7 @@ export const VideoIntroScreen: React.FC<VideoIntroScreenProps> = ({
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <video
           ref={videoRef}
-          src="/Envelope.mp4"
+          src={`${import.meta.env.BASE_URL}Envelope.mp4`}
           autoPlay
           loop
           muted
@@ -46,7 +46,7 @@ export const VideoIntroScreen: React.FC<VideoIntroScreenProps> = ({
             const target = e.currentTarget;
             if (!target.dataset.triedDecorative) {
               target.dataset.triedDecorative = 'true';
-              target.src = '/Decorative_panel_rotating_upward_202607291613.mp4';
+              target.src = `${import.meta.env.BASE_URL}Decorative_panel_rotating_upward_202607291613.mp4`;
             }
           }}
           className="w-full h-full object-cover sm:object-contain opacity-95 transition-transform duration-700 hover:scale-[1.01]"
@@ -115,4 +115,3 @@ export const VideoIntroScreen: React.FC<VideoIntroScreenProps> = ({
     </motion.div>
   );
 };
-
