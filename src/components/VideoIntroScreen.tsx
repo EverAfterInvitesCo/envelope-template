@@ -49,10 +49,10 @@ export const VideoIntroScreen: React.FC<VideoIntroScreenProps> = ({
               target.src = `${import.meta.env.BASE_URL}Decorative_panel_rotating_upward_202607291613.mp4`;
             }
           }}
-          className="w-full h-full object-cover sm:object-contain opacity-95 transition-transform duration-700 hover:scale-[1.01]"
+          className="w-full h-full object-cover opacity-95"
         />
-        {/* Subtle Vignette Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40 pointer-events-none" />
+        {/* Soft Vignette Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
       </div>
 
       {/* Top Banner overlay */}
@@ -60,7 +60,7 @@ export const VideoIntroScreen: React.FC<VideoIntroScreenProps> = ({
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.8 }}
-        className="relative z-10 text-center pt-8 sm:pt-12 px-4 space-y-1.5"
+        className="relative z-10 text-center pt-10 sm:pt-14 px-4 space-y-1"
       >
         <p className="font-cormorant text-xs sm:text-sm tracking-[0.4em] uppercase text-[#E8DEC3] font-semibold drop-shadow-md">
           {data.eventTitle}
@@ -83,7 +83,7 @@ export const VideoIntroScreen: React.FC<VideoIntroScreenProps> = ({
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8 }}
-        className="relative z-10 pb-10 sm:pb-14 flex flex-col items-center space-y-4 px-4"
+        className="relative z-10 pb-12 sm:pb-16 flex flex-col items-center space-y-4 px-4"
       >
         <motion.div
           whileHover={{ scale: 1.06 }}
