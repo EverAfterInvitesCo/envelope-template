@@ -88,7 +88,7 @@ export default function App() {
 
   const handleOpenInvitation = () => {
     setIsEnvelopeOpen(true);
-    // Automatically enable and play music when opening the invitation
+    // Automatically turn on music when the user clicks the intro screen/seal
     setInvitationData((prev) => ({ ...prev, musicEnabled: true }));
   };
 
