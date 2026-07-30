@@ -1,9 +1,9 @@
 import { InvitationData } from './types';
 
-import couplePhotoAsset from './assets/images/wedding_couple_portrait_1785327648578.jpg';
-import bridePhotoAsset from './assets/images/wedding_bride_portrait_1785327665344.jpg';
 import silkBgAsset from './assets/images/ivory_silk_bg_1785327681883.jpg';
 import envelopeIntroAsset from './assets/images/envelope_intro_1785332362014.jpg';
+
+const base = import.meta.env.BASE_URL;
 
 export const DEFAULT_INVITATION: InvitationData = {
   coupleNames: 'Clara & Elliot',
@@ -16,8 +16,8 @@ export const DEFAULT_INVITATION: InvitationData = {
   timeFormatted: 'TWELVE THIRTY IN THE AFTERNOON',
   locationName: 'Occitanie, France',
   venueDetails: 'Château de Cassan, 34320 Roujan, Occitanie, France',
-  couplePhoto: '/envelope-template/test 5.jpg',
-  bridePhoto: '/envelope-template/test 1.jpg',
+  couplePhoto: `${base}test-5.jpg`,
+  bridePhoto: `${base}test-1.jpg`,
   silkBgPhoto: silkBgAsset,
   envelopeImage: envelopeIntroAsset,
   messageText: 'FORMAL INVITATION TO FOLLOW',
