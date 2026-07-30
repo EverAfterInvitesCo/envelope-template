@@ -57,7 +57,7 @@ export default function App() {
     localStorage.setItem('pearl_ivory_guests', JSON.stringify(guests));
   }, [guests]);
 
-  // Control audio playback purely based on invitationData.musicEnabled state toggled via header bar
+  // Control audio playback based on musicEnabled state
   useEffect(() => {
     if (audioRef.current) {
       if (invitationData.musicEnabled) {
@@ -88,6 +88,8 @@ export default function App() {
 
   const handleOpenInvitation = () => {
     setIsEnvelopeOpen(true);
+    // Automatically enable and play music when opening the invitation
+    setInvitationData((prev) => ({ ...prev, musicEnabled: true }));
   };
 
   return (
