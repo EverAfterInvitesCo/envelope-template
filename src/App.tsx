@@ -57,6 +57,17 @@ export default function App() {
     localStorage.setItem('pearl_ivory_guests', JSON.stringify(guests));
   }, [guests]);
 
+  // Control audio playback purely based on invitationData.musicEnabled state toggled via header bar
+  useEffect(() => {
+    if (audioRef.current) {
+      if (invitationData.musicEnabled) {
+        audioRef.current.play().catch(() => {});
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [invitationData.musicEnabled]);
+
   const handleUpdateInvitation = (newData: Partial<InvitationData>) => {
     setInvitationData((prev) => ({ ...prev, ...newData }));
   };
@@ -77,11 +88,6 @@ export default function App() {
 
   const handleOpenInvitation = () => {
     setIsEnvelopeOpen(true);
-    if (audioRef.current) {
-      audioRef.current.play().catch(() => {
-        // Handle browser autoplay policy block gracefully if needed
-      });
-    }
   };
 
   return (
