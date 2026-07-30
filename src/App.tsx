@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { AnimatePresence } from 'motion/react';
 import { DEFAULT_INVITATION } from './constants';
 import { InvitationData, GuestRSVP } from './types';
@@ -32,6 +32,8 @@ export default function App() {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState<boolean>(false);
   const [isAddressModalOpen, setIsAddressModalOpen] = useState<boolean>(false);
   const [isPersonalizeModalOpen, setIsPersonalizeModalOpen] = useState<boolean>(false);
+
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const [guests, setGuests] = useState<GuestRSVP[]>(() => {
     const saved = localStorage.getItem('pearl_ivory_guests');
@@ -73,14 +75,29 @@ export default function App() {
     }
   };
 
+  const handleOpenInvitation = () => {
+    setIsEnvelopeOpen(true);
+    if (audioRef.current) {
+      audioRef.current.play().catch(() => {
+        // Handle browser autoplay policy block gracefully if needed
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#2C2A29] font-sans antialiased relative overflow-x-hidden pt-12 pb-20 selection:bg-[#E2D4C3]">
+      {/* Global Background Audio Element */}
+      <audio
+        ref={audioRef}
+        src={`${import.meta.env.BASE_URL}Sounds.mp3`}
+        loop
+      />
+
       {/* Background Soft Grain & Glow */}
       <div className="fixed inset-0 bg-radial from-[#FFFDF9] via-[#FAF6EE] to-[#F5ECE0] pointer-events-none -z-10" />
 
       {/* Header Bar Controls */}
       <HeaderBar
-        onOpenPersonalize={() => setIsPersonalizeModalOpen(true)}
         musicEnabled={invitationData.musicEnabled}
         onToggleMusic={() =>
           setInvitationData((prev) => ({ ...prev, musicEnabled: !prev.musicEnabled }))
@@ -93,7 +110,7 @@ export default function App() {
         {!isEnvelopeOpen && (
           <VideoIntroScreen
             data={invitationData}
-            onOpenInvitation={() => setIsEnvelopeOpen(true)}
+            onOpenInvitation={handleOpenInvitation}
           />
         )}
       </AnimatePresence>
