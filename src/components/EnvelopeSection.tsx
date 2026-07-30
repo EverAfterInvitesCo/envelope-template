@@ -106,7 +106,7 @@ export const EnvelopeSection: React.FC<EnvelopeSectionProps> = ({
                   <div className="w-full h-full rounded-[36px] border border-[#DDD0BC] p-2 bg-[#F6EDDF] flex flex-col items-center">
                     <div className="relative w-full aspect-[4/5] rounded-[50%] p-1.5 bg-[#FAF6EE] border border-[#D3C4B0] shadow-inner overflow-hidden">
                       <img
-                        src={data.couplePhoto}
+                        src={`${import.meta.env.BASE_URL}test-5.jpg`}
                         alt="Couple Portrait"
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover rounded-[50%] transition-transform duration-700 hover:scale-105"
@@ -132,7 +132,7 @@ export const EnvelopeSection: React.FC<EnvelopeSectionProps> = ({
                   {/* Polaroid Style Photo Frame */}
                   <div className="relative w-full aspect-[4/3] bg-white p-1.5 rounded-sm border border-[#E2D6C4] shadow-xs">
                     <img
-                      src={data.bridePhoto}
+                      src={`${import.meta.env.BASE_URL}test-1.jpg`}
                       alt="Bride Walk"
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover rounded-2xs transition-transform duration-700 hover:scale-105"
