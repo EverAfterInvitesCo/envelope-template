@@ -78,18 +78,14 @@ export const VideoIntroScreen: React.FC<VideoIntroScreenProps> = ({
         {isPlaying ? 'Pause' : 'Play'}
       </button>
 
-      {/* Bottom Center Wax Seal & Open Invitation Button */}
+      {/* Bottom Center Wax Seal Medallion (Without the Open Button) */}
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8 }}
-        className="relative z-10 pb-12 sm:pb-16 flex flex-col items-center space-y-4 px-4"
+        className="relative z-10 pb-12 sm:pb-16 flex flex-col items-center space-y-4 px-4 pointer-events-none"
       >
-        <motion.div
-          whileHover={{ scale: 1.06 }}
-          whileTap={{ scale: 0.95 }}
-          className="flex flex-col items-center space-y-3 cursor-pointer group"
-        >
+        <div className="flex flex-col items-center space-y-3">
           {/* Embossed Wax Seal Medallion */}
           <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-[#EFE3D3] via-[#DDD0BD] to-[#C4B29A] wax-seal-shadow flex items-center justify-center border-2 border-[#FAF3E8] p-1.5 transition-transform duration-300">
             <div className="w-full h-full rounded-full border border-[#FAF0E4]/80 flex flex-col items-center justify-center text-center p-2 bg-[#E5D5C2]/60 backdrop-blur-xs">
@@ -102,15 +98,7 @@ export const VideoIntroScreen: React.FC<VideoIntroScreenProps> = ({
             </div>
             <span className="absolute inset-0 rounded-full border border-[#FAF3E8] animate-ping opacity-30" />
           </div>
-
-          {/* "OPEN THE INVITATION" Pill Button */}
-          <div className="flex items-center space-x-2.5 bg-[#FAF6EE] px-7 py-3.5 rounded-full border border-[#E1D4C2] shadow-xl group-hover:bg-[#EFE4D3] transition-all">
-            <span className="font-cormorant text-xs sm:text-sm tracking-[0.25em] uppercase text-[#4A3E33] font-bold">
-              OPEN THE INVITATION
-            </span>
-            <span className="text-[#8C7A68] text-xs">✦</span>
-          </div>
-        </motion.div>
+        </div>
       </motion.div>
     </motion.div>
   );
